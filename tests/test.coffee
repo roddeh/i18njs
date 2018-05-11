@@ -25,7 +25,7 @@ SOFTWARE.
 ###
 con = console
 
-i18n = require("./i18n")
+i18n = require("../dist/i18n")
 
 assert = (val, expected) ->
   if val is expected
@@ -43,11 +43,13 @@ en = i18n.create
   values:
     "Cancel": "Cancel"
     "%n comments":[
+      [null, null, "Comments disabled"]
       [0, 0, "%n comments"]
       [1, 1, "%n comment"]
       [2, null, "%n comments"]
     ]
     "Due in %n days":[
+      [null, null, "Expired"]
       [null, -2, "Due -%n days ago"]
       [-1, -1, "Due Yesterday"]
       [0, 0, "Due Today"]
@@ -129,11 +131,13 @@ assert(i18n("%n comments", 1), "1 コメント")
 assert(i18n("%n comments", 2), "2 コメント")
 
 # Simple pluralisation
+assert(en("%n comments", null), "Comments disabled")
 assert(en("%n comments", 0), "0 comments")
 assert(en("%n comments", 1), "1 comment")
 assert(en("%n comments", 2), "2 comments")
 
 # Complex pluralisation with negative values
+assert(en("Due in %n days", null), "Expired")
 assert(en("Due in %n days", -2), "Due 2 days ago")
 assert(en("Due in %n days", -1), "Due Yesterday")
 assert(en("Due in %n days", 0), "Due Today")
