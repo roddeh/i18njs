@@ -4,6 +4,8 @@ Internationalisation library for JS projects
 
 For more information, demo and examples please checkout [http://i18njs.com](http://i18njs.com)
 
+Available via npm as ```npm install roddeh-i18n```
+
 
 ## Contributing
 
