@@ -1,0 +1,27 @@
+{
+  "name": "i18njs",
+  "version": "1.0.0",
+  "description": "Internationalisation library for JS projects",
+  "main": "i18n.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roddeh/i18njs.git"
+  },
+  "keywords": [
+    "i18n",
+    "internationalization",
+    "i18njs"
+  ],
+  "author": "Simon Rodwell (https://github.com/roddeh)",
+  "contributors": [
+    "Marek Sierociński (https://github.com/marverix)"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/roddeh/i18njs/issues"
+  },
+  "homepage": "http://i18njs.com"
+}
