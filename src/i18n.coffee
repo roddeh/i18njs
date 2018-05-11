@@ -178,8 +178,8 @@ SOFTWARE.
         return @applyFormatting(value, num, formatting) if typeof value is "string"
       else
         if value instanceof Array or value.length
+          a = num is null
           for triple in value
-            a = num is null
             b = triple[0] is null
             c = triple[1] is null
             d = num >= triple[0]

@@ -186,9 +186,9 @@ SOFTWARE.
           }
         } else {
           if (value instanceof Array || value.length) {
+            a = num === null;
             for (i = 0, len = value.length; i < len; i++) {
               triple = value[i];
-              a = num === null;
               b = triple[0] === null;
               c = triple[1] === null;
               d = num >= triple[0];
