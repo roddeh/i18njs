@@ -1,31 +1,6 @@
-###
-
-MIT License
-
-Copyright (c) [year] [fullname]
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-###
 con = console
 
-i18n = require("./i18n")
+i18n = require("../dist/i18n")
 
 assert = (val, expected) ->
   if val is expected
@@ -43,11 +18,13 @@ en = i18n.create
   values:
     "Cancel": "Cancel"
     "%n comments":[
+      [null, null, "Comments disabled"]
       [0, 0, "%n comments"]
       [1, 1, "%n comment"]
       [2, null, "%n comments"]
     ]
     "Due in %n days":[
+      [null, null, "Expired"]
       [null, -2, "Due -%n days ago"]
       [-1, -1, "Due Yesterday"]
       [0, 0, "Due Today"]
@@ -129,11 +106,13 @@ assert(i18n("%n comments", 1), "1 コメント")
 assert(i18n("%n comments", 2), "2 コメント")
 
 # Simple pluralisation
+assert(en("%n comments", null), "Comments disabled")
 assert(en("%n comments", 0), "0 comments")
 assert(en("%n comments", 1), "1 comment")
 assert(en("%n comments", 2), "2 comments")
 
 # Complex pluralisation with negative values
+assert(en("Due in %n days", null), "Expired")
 assert(en("Due in %n days", -2), "Due 2 days ago")
 assert(en("Due in %n days", -1), "Due Yesterday")
 assert(en("Due in %n days", 0), "Due Today")

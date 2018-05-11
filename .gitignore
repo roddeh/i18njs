@@ -1,0 +1,6 @@
+# Common files
+node_modules/
+package-lock.json
+
+# IDE
+.vscode/
