@@ -1,11 +1,11 @@
 {
   "name": "roddeh-i18n",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Internationalisation library for JS projects",
   "main": "dist/i18n.js",
   "scripts": {
     "build": "npx coffee --compile --output dist/ src/",
-    "test": "npx coffee --compile tests/test.coffee; nodejs tests/test.js"
+    "test": "npx coffee --compile tests/test.coffee; node tests/test.js"
   },
   "repository": {
     "type": "git",

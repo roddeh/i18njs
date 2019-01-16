@@ -161,3 +161,14 @@ assert(
   )
   "Janeは彼女のHen's Nightアルバムに写真4枚をアップロードしました"
 )
+
+
+EXTENSION_CALLED = 'extension called'
+
+extension = (text, num, formatting, data) ->
+  return EXTENSION_CALLED
+
+extTest = i18n.create(values:key:{})
+extTest.translator.extend(extension)
+
+assert(extTest("key"), EXTENSION_CALLED)

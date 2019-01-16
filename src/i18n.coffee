@@ -1,7 +1,7 @@
 'use strict'
 
 ((root, factory) ->
-  # CoffeeScript port ofg UMD template
+  # CoffeeScript port of UMD template
   # https://github.com/umdjs/umd/blob/master/templates/returnExportsGlobal.js
 
   if typeof define is 'function' and define.amd
@@ -92,19 +92,23 @@
     setContext: (key, value) ->
       @globalContext[key] = value
 
+
+    extend: (ext) ->
+      @extension = ext
+
     #
     # Clears the context for the given key
     # @param {String} The key to clear
     #
     clearContext: (key) ->
-      @lobalContext[key] = null
+      @globalContext[key] = null
 
     #
     # Destroys all translation and context data.
     #
     reset: () ->
-      @data = {values:{}, contexts:[]}
-      @globalContext = {}
+      @resetData()
+      @resetContext()
 
     #
     # Destroys all translation data.  Useful for when you change languages
@@ -145,11 +149,21 @@
       # Otherwise we got a result so lets use it.
       return result
 
-    findTranslation: (text, num, formatting, data) ->
+    findTranslation: (text, num, formatting, data, defaultText) ->
       value = data[text]
       return null unless value?
+      if typeof value is "object" and not Array.isArray(value)
+        # We are using an extension to translate.
+        if @extension and typeof @extension is "function"
+          value = @extension(text, num, formatting, value)
+          value = @applyNumbers(value, num)
+          return @applyFormatting(value, num, formatting)
+        else
+          return @useOriginalText(defaultText or text, num, formatting)
+      
       if not num? and not Array.isArray(value)
-        return @applyFormatting(value, num, formatting) if typeof value is "string"
+        if typeof value is "string"
+          return @applyFormatting(value, num, formatting)        
       else
         if value instanceof Array or value.length
           a = num is null
@@ -163,6 +177,12 @@
               result = @applyFormatting(triple[2].replace("-%n", String(-num)), num, formatting)
               return @applyFormatting(result.replace("%n", String(num)), num, formatting)
       return null
+
+    applyNumbers: (str, num) ->
+      str = str.replace("-%n", String(-num))
+      str = str.replace("%n", String(num))
+      return str
+
 
     getContextData: (data, context) ->
       return null unless data.contexts?
@@ -198,7 +218,7 @@
     trans = new Translator()
     trans.add(data) if data?
     trans.translate.create = i18n.create
-    # trans.translate.translator = trans
+    trans.translate.translator = trans
     return trans.translate
 
   i18n
