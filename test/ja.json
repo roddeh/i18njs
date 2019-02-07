@@ -1,0 +1,34 @@
+{
+  "values": {
+    "Hello": "こんにちは",
+    "Yes": "はい",
+    "No": "いいえ",
+    "Ok": "Ok",
+    "Cancel": "キャンセル",
+    "%n comments": [
+      [0, null, "%n コメント"]
+    ],
+    "_monkeys": "猿も木から落ちる"
+  },
+  "contexts": [
+    {
+      "matches": {
+        "gender": "male"
+      },
+      "values": {
+        "%{name} uploaded %n photos to their %{album} album": [
+          [0, null, "%{name}は彼の%{album}アルバムに写真%n枚をアップロードしました"]
+        ]
+      }
+    }, {
+      "matches": {
+        "gender": "female"
+      },
+      "values": {
+        "%{name} uploaded %n photos to their %{album} album": [
+          [0, null, "%{name}は彼女の%{album}アルバムに写真%n枚をアップロードしました"]
+        ]
+      }
+    }
+  ]
+}

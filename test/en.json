@@ -1,0 +1,45 @@
+{
+  "values": {
+    "Cancel": "Cancel",
+    "%n comments": [
+      [null, null, "Comments disabled"],
+      [0, 0, "%n comments"],
+      [1, 1, "%n comment"],
+      [2, null, "%n comments"]
+    ],
+    "Due in %n days": [
+      [null, null, "Expired"],
+      [null, -2, "Due -%n days ago"],
+      [-1, -1, "Due Yesterday"],
+      [0, 0, "Due Today"],
+      [1, 1, "Due Tomorrow"],
+      [2, null, "Due in %n days"]
+    ]
+  },
+  "contexts": [
+    {
+      "matches": {
+        "gender": "male"
+      },
+      "values": {
+        "%{name} uploaded %n photos to their %{album} album": [
+          [0, 0, "%{name} uploaded %n photos to his %{album} album"],
+          [1, 1, "%{name} uploaded %n photo to his %{album} album"],
+          [2, null, "%{name} uploaded %n photos to his %{album} album"]
+        ]
+      }
+    },
+    {
+      "matches": {
+        "gender": "female"
+      },
+      "values": {
+        "%{name} uploaded %n photos to their %{album} album": [
+          [0, 0, "%{name} uploaded %n photos to her %{album} album"],
+          [1, 1, "%{name} uploaded %n photo to her %{album} album"],
+          [2, null, "%{name} uploaded %n photos to her %{album} album"]
+        ]
+      }
+    }
+  ]
+}
