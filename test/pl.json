@@ -1,0 +1,33 @@
+{
+  "values": {
+    "Cancel": "Anuluj"
+  },
+  "contexts": [
+    {
+      "matches": {
+        "gender": "male"
+      },
+      "values": {
+        "%{name} uploaded %n photos to their %{album} album": [
+          [0, 0, "%{name} przesłał %n zdjęć do jego albumu %{album}"],
+          [1, 1, "%{name} przesłał %n zdjęcie do jego albumu %{album}"],
+          [2, 4, "%{name} przesłał %n zdjęcia do jego albumu %{album}"],
+          [5, null, "%{name} przesłał %n zdjęć do jego albumu %{album}"]
+        ]
+      }
+    },
+    {
+      "matches": {
+        "gender": "female"
+      },
+      "values": {
+        "%{name} uploaded %n photos to their %{album} album": [
+          [0, 0, "%{name} przesłała %n zdjęć do jej albumu %{album}"],
+          [1, 1, "%{name} przesłała %n zdjęcie do jej albumu %{album}"],
+          [2, 4, "%{name} przesłała %n zdjęcia do jej albumu %{album}"],
+          [5, null, "%{name} przesłała %n zdjęć do jej albumu %{album}"]
+        ]
+      }
+    }
+  ]
+}
