@@ -3,10 +3,12 @@
   "version": "1.2.0",
   "description": "Internationalisation library for JS projects",
   "main": "dist/i18n.js",
-  "types": "./typings/index.d.ts",
+  "typings": "./typings/index.d.ts",
   "scripts": {
     "build": "npx coffee --compile --output dist/ src/",
-    "test": "npx mocha"
+    "test": "npx mocha",
+    "test:typings": "dtslint --expectOnly typings",
+    "lint:typings": "dtslint typings"
   },
   "repository": {
     "type": "git",
@@ -29,6 +31,7 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "coffeescript": "<2.0.0",
+    "dtslint": "^0.8.0",
     "mocha": "^5.2.0"
   }
 }
