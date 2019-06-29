@@ -1,0 +1,20 @@
+{
+    "files": [
+        "index.d.ts",
+        "index.spec.ts"
+    ],
+    "compilerOptions": {
+        "module": "commonjs",
+        "lib": ["es6"],
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "noEmit": true,
+        "baseUrl": "../",
+        "paths": { "roddeh_i18n": ["."] },
+        "typeRoots": ["./typings"]
+    }
+}
