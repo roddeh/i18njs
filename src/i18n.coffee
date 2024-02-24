@@ -219,6 +219,8 @@
     trans.add(data) if data?
     trans.translate.create = i18n.create
     trans.translate.translator = trans
+    trans.translate.extend = (extension) => trans.extend(extension)
+
     return trans.translate
 
   i18n

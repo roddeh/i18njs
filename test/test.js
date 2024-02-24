@@ -74,6 +74,23 @@ describe('roddeh-i18n', function() {
     });
   });
 
+  describe('Test extensions', function() {
+    before(function() {
+      instance.en.extend(function(_text, num, _formatting, data) {
+        if (num === 3) {
+          return data['three']
+        }
+        else {
+          return data['default']
+        }
+      })
+    })
+
+    it('Uses extension in English instance', function() {
+      expect(instance.en('extended %n', 3)).to.be.equal('3 is three!')
+    })
+  })
+
   describe('Test simple pluralism', function() {
     it('Returns proper translations with default translation', function() {
       expect(i18n('%n comments', 0)).to.be.equal('0 コメント');
