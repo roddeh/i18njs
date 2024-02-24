@@ -244,11 +244,9 @@
       }
       trans.translate.create = i18n.create;
       trans.translate.translator = trans;
-      trans.translate.extend = (function(_this) {
-        return function(extension) {
-          return trans.extend(extension);
-        };
-      })(this);
+      trans.translate.extend = function(extension) {
+        return trans.extend(extension);
+      };
       return trans.translate;
     };
     return i18n;
